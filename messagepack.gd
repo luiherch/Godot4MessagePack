@@ -105,10 +105,13 @@ static func _encode_message(buffer: StreamPeerBuffer, value):
 				buffer.put_u8(types["fixstr"][0]|size)
 			elif size <= (1 << 8) - 1:
 				buffer.put_u8(types["str_8"])
+				buffer.put_u8(size)
 			elif size <= (1 << 16) - 1:
 				buffer.put_u8(types["str_16"])
+				buffer.put_u16(size)
 			elif size <= (1 << 32) - 1:
 				buffer.put_u32(types["str_32"])
+				buffer.put_u32(size)
 			else:
 				printerr("Unsupported string: string is too big")
 				return ERR_INVALID_DATA
