@@ -1,0 +1,6 @@
+# Normalize line endings
+* text=auto eol=lf
+
+# Only include messagepack file when downloading from the Asset Library
+/** export-ignore
+/messagepack.gd !export-ignore
