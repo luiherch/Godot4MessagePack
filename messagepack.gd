@@ -71,25 +71,25 @@ static func _encode_message(buffer: StreamPeerBuffer, value):
 				buffer.put_8(value)
 			elif - (1 << 7) <= value and value <= (1 << 7):
 				buffer.put_u8(types["int_8"])
-				buffer.put8(value)
+				buffer.put_8(value)
 			elif 0 <= value and value <= (1 << 8) - 1:
 				buffer.put_u8(types["uint_8"])
 				buffer.put_u8(value)
 			elif - (1 << 15) <= value and value <= (1 << 15):
 				buffer.put_u8(types["int_16"])
-				buffer.put16(value)
+				buffer.put_16(value)
 			elif 0 <= value and value <= (1 << 16) - 1:
 				buffer.put_u8(types["uint_16"])
 				buffer.put_u16(value)
 			elif - (1 << 31) <= value and value <= (1 << 31):
 				buffer.put_u8(types["int_32"])
-				buffer.put32(value)
+				buffer.put_32(value)
 			elif 0 <= value and value <= (1 << 32) - 1:
 				buffer.put_u8(types["uint_32"])
 				buffer.put_u32(value)
 			elif - (1 << 63) <= value and value <= (1 << 63):
 				buffer.put_u8(types["int_64"])
-				buffer.put64(value)
+				buffer.put_64(value)
 			else:
 				buffer.put_u8(types["uint_64"])
 				buffer.put_u64(value)
